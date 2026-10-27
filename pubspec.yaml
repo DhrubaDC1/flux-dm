@@ -1,0 +1,21 @@
+name: flux_dm
+description: An open-source, cross-platform download manager.
+publish_to: none
+version: 0.1.0+1
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  path_provider: ^2.1.5
+  # Keep the platform-channel backend; directory lookup needs no JNI runtime.
+  path_provider_android: '>=2.2.22 <2.3.0'
+  file_selector: ^1.0.4
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+flutter:
+  uses-material-design: true
