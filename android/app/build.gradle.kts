@@ -30,11 +30,23 @@ android {
         versionName = flutter.versionName
     }
 
+    signingConfigs {
+        // A stable key lets updates install in place; uninstalling deletes
+        // downloads kept in app-private storage.
+        if (providers.gradleProperty("fluxKeystore").isPresent) {
+            create("release") {
+                storeFile = file(providers.gradleProperty("fluxKeystore").get())
+                storePassword = providers.gradleProperty("fluxKeystorePassword").get()
+                keyAlias = providers.gradleProperty("fluxKeyAlias").get()
+                keyPassword = providers.gradleProperty("fluxKeyPassword").get()
+            }
+        }
+    }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.findByName("release")
+                ?: signingConfigs.getByName("debug")
         }
     }
 }

@@ -17,6 +17,11 @@ https://github.com/DhrubaDC1/flux-dm. Keep this tracker current with feature cha
 - Network permissions, macOS sandbox entitlements, mobile private storage and
   iOS Files visibility.
 - Architecture decision and measurable roadmap.
+- Unsigned release CI (`.github/workflows/release.yml`): a `v*` tag matching
+  pubspec runs analyze/tests, builds Linux tar.gz (Ubuntu 22.04 glibc floor),
+  Windows zip with MSVC runtime, macOS zip, Android APK and unsigned iOS IPA,
+  then publishes a GitHub pre-release. App icons on every platform (Android
+  adaptive) are generated from `docs/logo.svg`.
 
 ## Verification
 
@@ -42,6 +47,11 @@ https://github.com/DhrubaDC1/flux-dm. Keep this tracker current with feature cha
   uses Flutter's recommended NDK. Plugins warn that they prefer NDK 28.2;
   no Android runtime/device validation has been performed.
 - Passed: Apple plist/entitlement and Android manifest syntax parsing.
+- Passed locally: release workflow's Linux packaging (tarball extracted and
+  launched under Xvfb with a throwaway profile) and Android release APK with a
+  test keystore and with the debug-key fallback (apksigner); adaptive icon is
+  in the APK. Unrun: the workflow itself on GitHub Actions, so Windows, macOS
+  and iOS are still unbuilt.
 - Unrun: Android device/runtime validation; no ADB device is connected.
 - Unrun: Windows build/runtime and macOS/iOS build/runtime/signing; required
   operating system hosts/toolchains are unavailable here.
@@ -74,3 +84,13 @@ The existing NDK can be selected with
 `ORG_GRADLE_PROJECT_fluxNdkVersion=27.1.12297006`; use Flutter's default on a
 fully provisioned host. Build log: `/tmp/flux-android-build-final.log`.
 Avoid global configuration edits.
+
+## Releasing
+
+Bump `version:` in pubspec.yaml, commit, then `git tag v<version>` and push the
+tag. Manual workflow runs only upload artifacts. Android release signing is
+optional: repo secrets `ANDROID_KEYSTORE_BASE64` (base64 .jks),
+`ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS`, `ANDROID_KEY_PASSWORD` map to
+the `fluxKeystore*` Gradle properties. Without them each APK gets a throwaway
+debug key and cannot update an earlier install; uninstalling deletes downloads
+in app-private storage. Never commit keystores.

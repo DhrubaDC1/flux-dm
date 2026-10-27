@@ -8,3 +8,6 @@ android/.gradle/
 # Local-only reference notes; never commit or publish.
 research/
 *.part
+# Release signing keys; keep them out of the repo.
+*.jks
+*.keystore

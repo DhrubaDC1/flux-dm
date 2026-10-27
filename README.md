@@ -19,7 +19,7 @@ for Windows, Linux, macOS, Android and iOS.
 [![Platforms](https://img.shields.io/badge/platforms-Linux%20·%20Windows%20·%20macOS%20·%20Android%20·%20iOS-6f42c1?style=flat-square)](#-platforms)
 [![Last commit](https://img.shields.io/github/last-commit/DhrubaDC1/flux-dm?style=flat-square)](https://github.com/DhrubaDC1/flux-dm/commits)
 
-[Features](#-features) · [Platforms](#-platforms) · [Roadmap](#-roadmap) · [Quick start](#-quick-start) · [How it works](#-how-it-works) · [Contributing](#-contributing)
+[Features](#-features) · [Platforms](#-platforms) · [Download](#-download) · [Roadmap](#-roadmap) · [Quick start](#-quick-start) · [How it works](#-how-it-works) · [Contributing](#-contributing)
 
 <br>
 
@@ -76,6 +76,19 @@ for Windows, Linux, macOS, Android and iOS.
 | 🪟 **Windows** | ⏳ Project ready; needs a Windows host to build and test |
 | 🍎 **macOS** | ⏳ Project ready; needs a Mac to build and test |
 | 📱 **iOS** | ⏳ Project ready; needs a Mac and a device to build and test |
+
+## 📦 Download
+
+Preview builds for every platform are on the [Releases page](https://github.com/DhrubaDC1/flux-dm/releases).
+They are **unsigned**, so your system will warn you the first time you open them.
+
+| Platform | File | First launch |
+| --- | --- | --- |
+| 🐧 **Linux** | `-linux-x64.tar.gz` | Extract and run `flux-dm/flux_dm`. Needs GTK 3 and glibc 2.35 or newer (Ubuntu 22.04, Debian 12 and later). |
+| 🪟 **Windows** | `-windows-x64.zip` | Extract and run `flux-dm\flux_dm.exe`. If SmartScreen appears, choose **More info → Run anyway**. |
+| 🍎 **macOS** | `-macos.zip` | Unzip, move the app to Applications and open it once. Then go to **System Settings → Privacy & Security → Open Anyway**, or run `xattr -dr com.apple.quarantine "/Applications/Flux Download Manager.app"`. |
+| 🤖 **Android** | `-android.apk` | Open the APK and allow installs from that app when asked. |
+| 📱 **iOS** | `-ios-unsigned.ipa` | Install with a sideloading tool such as AltStore or Sideloadly, which signs it with your own Apple ID. |
 
 ## 🧭 Roadmap
 
