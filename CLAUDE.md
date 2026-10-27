@@ -18,7 +18,8 @@ https://github.com/DhrubaDC1/flux-dm. Keep this tracker current with feature cha
   iOS Files visibility.
 - Architecture decision and measurable roadmap.
 - Unsigned release CI (`.github/workflows/release.yml`): a `v*` tag matching
-  pubspec runs analyze/tests, builds Linux tar.gz (Ubuntu 22.04 glibc floor),
+  pubspec runs analyze/tests, builds Linux tar.gz and AppImage (Ubuntu 22.04
+  glibc floor; appimagetool/runtime pinned by SHA-256),
   Windows zip with MSVC runtime, macOS zip, Android APK and unsigned iOS IPA,
   then publishes a GitHub pre-release. App icons on every platform (Android
   adaptive) are generated from `docs/logo.svg`.
@@ -58,7 +59,10 @@ https://github.com/DhrubaDC1/flux-dm. Keep this tracker current with feature cha
   glibc <= 2.34 and the CI tarball launched here under Xvfb.
 - Published v0.1.0 pre-release (run 40520686179) with all five packages. Its
   APK is debug-key signed by user choice, so later stable-key APKs cannot
-  update it in place.
+  update it in place. v0.1.0 has no AppImage.
+- Passed: AppImage in CI run 40522566577. Payload unpacked with 7z (AppRun
+  link, desktop entry, icon) and launched via AppRun under Xvfb. Running the
+  AppImage itself (type2 runtime/FUSE mount) is untested here.
 - Unrun: Android device/runtime validation; no ADB device is connected.
 - Unrun: Windows, macOS and iOS runtime, and Apple signing; no such hosts or
   devices are available here.
