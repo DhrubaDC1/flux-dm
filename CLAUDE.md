@@ -59,7 +59,8 @@ https://github.com/DhrubaDC1/flux-dm. Keep this tracker current with feature cha
   glibc <= 2.34 and the CI tarball launched here under Xvfb.
 - Published v0.1.0 pre-release (run 40520686179) with all five packages. Its
   APK is debug-key signed by user choice, so later stable-key APKs cannot
-  update it in place. v0.1.0 has no AppImage.
+  update it in place. Its AppImage was added afterwards from run 40522566577
+  (commit c126d01; app sources identical to the tag, only CI/docs differ).
 - Passed: AppImage in CI run 40522566577. Payload unpacked with 7z (AppRun
   link, desktop entry, icon) and launched via AppRun under Xvfb. Running the
   AppImage itself (type2 runtime/FUSE mount) is untested here.
