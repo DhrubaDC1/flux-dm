@@ -50,11 +50,16 @@ https://github.com/DhrubaDC1/flux-dm. Keep this tracker current with feature cha
 - Passed locally: release workflow's Linux packaging (tarball extracted and
   launched under Xvfb with a throwaway profile) and Android release APK with a
   test keystore and with the debug-key fallback (apksigner); adaptive icon is
-  in the APK. Unrun: the workflow itself on GitHub Actions, so Windows, macOS
-  and iOS are still unbuilt.
+  in the APK.
+- Passed on GitHub Actions (manual runs 40505364495, 40507118785): tests and
+  all five release builds. Inspected artifacts: Windows zip has exe + MSVC
+  DLLs; macOS app is universal (x86_64+arm64), ad-hoc signed, has icon; IPA
+  has Payload/Runner.app; APK has arm64/armv7/x86_64; Linux binary needs
+  glibc <= 2.34 and the CI tarball launched here under Xvfb. The tag-only
+  `release` job has not run yet.
 - Unrun: Android device/runtime validation; no ADB device is connected.
-- Unrun: Windows build/runtime and macOS/iOS build/runtime/signing; required
-  operating system hosts/toolchains are unavailable here.
+- Unrun: Windows, macOS and iOS runtime, and Apple signing; no such hosts or
+  devices are available here.
 
 ## Current boundary
 

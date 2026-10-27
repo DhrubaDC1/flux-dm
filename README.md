@@ -30,8 +30,8 @@ for Windows, Linux, macOS, Android and iOS.
 > [!IMPORTANT]
 > 🚧 **Flux is under active development.** The download engine works today and passes
 > a native end-to-end test on Linux. It is **not production-ready yet**: Windows, macOS
-> and iOS builds, background downloads and browser capture are still on the
-> [roadmap](#-roadmap). ⭐ **Star the repo** to follow progress.
+> and iOS builds are untested on real devices, and background downloads and browser
+> capture are still on the [roadmap](#-roadmap). ⭐ **Star the repo** to follow progress.
 
 ## ✨ Features
 
@@ -72,10 +72,10 @@ for Windows, Linux, macOS, Android and iOS.
 | Platform | Status |
 | --- | --- |
 | 🐧 **Linux** | ✅ Builds and passes a native end-to-end test: add → pause → restart → resume → verify → delete |
-| 🤖 **Android** | 🟡 Debug APK builds; not yet tested on a device |
-| 🪟 **Windows** | ⏳ Project ready; needs a Windows host to build and test |
-| 🍎 **macOS** | ⏳ Project ready; needs a Mac to build and test |
-| 📱 **iOS** | ⏳ Project ready; needs a Mac and a device to build and test |
+| 🤖 **Android** | 🟡 Release APK builds in CI; not yet tested on a device |
+| 🪟 **Windows** | 🟡 Builds in CI; not yet tested on a PC |
+| 🍎 **macOS** | 🟡 Builds in CI (Intel and Apple Silicon); not yet tested on a Mac |
+| 📱 **iOS** | 🟡 Unsigned build in CI; not yet tested on a device |
 
 ## 📦 Download
 
