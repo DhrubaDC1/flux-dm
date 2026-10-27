@@ -84,6 +84,7 @@ They are **unsigned**, so your system will warn you the first time you open them
 
 | Platform | File | First launch |
 | --- | --- | --- |
+| 🐧 **Linux** | `-linux-x64.AppImage` | `chmod +x` the file and run it. Needs GTK 3 and glibc 2.35 or newer (Ubuntu 22.04, Debian 12 and later). |
 | 🐧 **Linux** | `-linux-x64.tar.gz` | Extract and run `flux-dm/flux_dm`. Needs GTK 3 and glibc 2.35 or newer (Ubuntu 22.04, Debian 12 and later). |
 | 🪟 **Windows** | `-windows-x64.zip` | Extract and run `flux-dm\flux_dm.exe`. If SmartScreen appears, choose **More info → Run anyway**. |
 | 🍎 **macOS** | `-macos.zip` | Unzip, move the app to Applications and open it once. Then go to **System Settings → Privacy & Security → Open Anyway**, or run `xattr -dr com.apple.quarantine "/Applications/Flux Download Manager.app"`. |

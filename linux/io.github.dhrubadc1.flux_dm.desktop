@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Flux Download Manager
+GenericName=Download Manager
+Comment=Multi-connection, resumable downloads
+Exec=flux_dm
+Icon=io.github.dhrubadc1.flux_dm
+Terminal=false
+Categories=Network;FileTransfer;

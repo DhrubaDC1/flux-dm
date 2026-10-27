@@ -74,6 +74,25 @@ jobs:
           tar -C build/linux/x64/release --transform 's,^bundle,flux-dm,' \
             -czf "dist/$PKG-linux-x64.tar.gz" bundle
 
+      - name: Linux AppImage
+        if: matrix.target == 'linux'
+        run: |
+          tools=https://github.com/AppImage
+          curl -fsSLo "$RUNNER_TEMP/appimagetool" "$tools/appimagetool/releases/download/1.9.1/appimagetool-x86_64.AppImage"
+          curl -fsSLo "$RUNNER_TEMP/runtime" "$tools/type2-runtime/releases/download/20251108/runtime-x86_64"
+          sha256sum -c <<EOF
+          ed4ce84f0d9caff66f50bcca6ff6f35aae54ce8135408b3fa33abfc3cb384eb0  $RUNNER_TEMP/appimagetool
+          2fca8b443c92510f1483a883f60061ad09b46b978b2631c807cd873a47ec260d  $RUNNER_TEMP/runtime
+          EOF
+          chmod +x "$RUNNER_TEMP/appimagetool"
+          app="$RUNNER_TEMP/AppDir"
+          cp -r build/linux/x64/release/bundle "$app"
+          ln -s flux_dm "$app/AppRun"
+          cp linux/io.github.dhrubadc1.flux_dm.desktop "$app/"
+          cp docs/logo.svg "$app/io.github.dhrubadc1.flux_dm.svg"
+          APPIMAGE_EXTRACT_AND_RUN=1 ARCH=x86_64 "$RUNNER_TEMP/appimagetool" \
+            --runtime-file "$RUNNER_TEMP/runtime" "$app" "dist/$PKG-linux-x64.AppImage"
+
       - if: matrix.target == 'android'
         uses: actions/setup-java@v5
         with:
